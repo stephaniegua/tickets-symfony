@@ -27,13 +27,13 @@ class Ticket
     private ?string $description = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $category = null;
+    private ?string $categorie = null;
 
     #[ORM\Column(length: 50)]
     private ?string $status = null;
 
     #[ORM\Column(length: 50, nullable: true)]
-    private ?string $resposable = null;
+    private ?string $responsable = null;
 
     public function getId(): ?int
     {
@@ -88,14 +88,14 @@ class Ticket
         return $this;
     }
 
-    public function getCategory(): ?string
+    public function getCategorie(): ?string
     {
-        return $this->category;
+        return $this->categorie;
     }
 
-    public function setCategory(string $category): static
+    public function setCategorie(string $categorie): static
     {
-        $this->category = $category;
+        $this->categorie = $categorie;
 
         return $this;
     }
@@ -112,14 +112,14 @@ class Ticket
         return $this;
     }
 
-    public function getResposable(): ?string
+    public function getResponsable(): ?string
     {
-        return $this->resposable;
+        return $this->responsable;
     }
 
-    public function setResposable(?string $resposable): static
+    public function setResponsable(?string $responsable): static
     {
-        $this->resposable = $resposable;
+        $this->responsable = $responsable;
 
         return $this;
     }
