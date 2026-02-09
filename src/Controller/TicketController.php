@@ -14,10 +14,10 @@ use App\Repository\StatutRepository;
 
 final class TicketController extends AbstractController
 {
-    #[Route('/ticket/new', name: 'ticket_new')]
     public function __construct(
         private StatutRepository $statutRepository
         ) {}
+        #[Route('/ticket/new', name: 'ticket_new')]
     public function new(Request $request, EntityManagerInterface $em): Response
     {
     $ticket = new Ticket(); 
@@ -28,20 +28,22 @@ final class TicketController extends AbstractController
     $statut = $this->statutRepository->findOneBy(['nom' => 'Ouvert']);
     $ticket->setStatut($statut);
 
-
+    // Créer le formulaire et gérer la requête
     $form = $this->createForm(TicketType::class, $ticket); 
     $form->handleRequest($request); 
-
+        
+    // Vérifier si le formulaire est soumis et valide
     if ($form->isSubmitted() && $form->isValid()) { 
         $em->persist($ticket); 
         $em->flush(); 
-
+        
+        // Rediriger vers une page de confirmation ou la liste des tickets
         return $this->redirectToRoute('home'); 
     } 
-
+    // Afficher le formulaire
     return $this->render('ticket/new.html.twig', [ 
         'form' => $form->createView(),
          ]); 
-}
+    }
          
 }

@@ -32,19 +32,11 @@ class Ticket
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Statut $Statut = null;
+    private ?Statut $statut = null;
 
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Responsable $responsabble = null;
-
-    #[ORM\Column(length: 50)]
-    
-
-    #[ORM\Column(length: 50)]
-    
-
-    #[ORM\Column(length: 50, nullable: true)]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Responsable $responsable = null;
 
     public function getId(): ?int
     {
@@ -59,7 +51,6 @@ class Ticket
     public function setAuteur(string $auteur): static
     {
         $this->auteur = $auteur;
-
         return $this;
     }
 
@@ -71,7 +62,6 @@ class Ticket
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
-
         return $this;
     }
 
@@ -83,7 +73,6 @@ class Ticket
     public function setClosedAt(?\DateTime $closedAt): static
     {
         $this->closedAt = $closedAt;
-
         return $this;
     }
 
@@ -95,7 +84,6 @@ class Ticket
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
         return $this;
     }
 
@@ -107,32 +95,29 @@ class Ticket
     public function setCategorie(?Categorie $categorie): static
     {
         $this->categorie = $categorie;
-
         return $this;
     }
 
     public function getStatut(): ?Statut
     {
-        return $this->Statut;
+        return $this->statut;
     }
 
-    public function setStatut(?Statut $Statut): static
+    public function setStatut(?Statut $statut): static
     {
-        $this->Statut = $Statut;
-
+        $this->statut = $statut;
         return $this;
     }
 
-    public function getResponsabble(): ?Responsable
+    public function getResponsable(): ?Responsable
     {
-        return $this->responsabble;
+        return $this->responsable;
     }
 
-    public function setResponsabble(?Responsable $responsabble): static
+    public function setResponsable(?Responsable $responsable): static
     {
-        $this->responsabble = $responsabble;
-
+        $this->responsable = $responsable;
         return $this;
     }
-
 }
+

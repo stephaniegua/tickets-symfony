@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Categorie;
 use App\Entity\Ticket;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,17 +29,13 @@ class TicketType extends AbstractType
                 'label' => 'Description du problème',
                 'required' => true,
             ])
-            ->add('categorie', ChoiceType::class, [
-                'choices' => [
-                    'Incident' => 'Incident',
-                    'Panne' => 'Panne',
-                    'Evolution' => 'Evolution',
-                    'Anomalie' => 'Anomalie',
-                    'Information' => 'Information',
-                ],
+            ->add('categorie', EntityType::class, [
+                'class' => Categorie::class,
+                'choice_label' => 'nom',
+                'placeholder' => 'Sélectionnez une catégorie',
                 'label' => 'Catégorie du problème',
-                'required' => true,
-            ])
+                ])
+                
             ->add('responsable', TextType::class, [
                 'label' => 'Responsable du ticket',
                 'required' => false,
@@ -48,7 +46,7 @@ class TicketType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => Ticket::class,
         ]);
     }
 }
