@@ -26,14 +26,25 @@ class Ticket
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $categorie = null;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Categorie $categorie = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Statut $Statut = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Responsable $responsabble = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $status = null;
+    
+
+    #[ORM\Column(length: 50)]
+    
 
     #[ORM\Column(length: 50, nullable: true)]
-    private ?string $responsable = null;
 
     public function getId(): ?int
     {
@@ -88,39 +99,40 @@ class Ticket
         return $this;
     }
 
-    public function getCategorie(): ?string
+    public function getCategorie(): ?Categorie
     {
         return $this->categorie;
     }
 
-    public function setCategorie(string $categorie): static
+    public function setCategorie(?Categorie $categorie): static
     {
         $this->categorie = $categorie;
 
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getStatut(): ?Statut
     {
-        return $this->status;
+        return $this->Statut;
     }
 
-    public function setStatus(string $status): static
+    public function setStatut(?Statut $Statut): static
     {
-        $this->status = $status;
+        $this->Statut = $Statut;
 
         return $this;
     }
 
-    public function getResponsable(): ?string
+    public function getResponsabble(): ?Responsable
     {
-        return $this->responsable;
+        return $this->responsabble;
     }
 
-    public function setResponsable(?string $responsable): static
+    public function setResponsabble(?Responsable $responsabble): static
     {
-        $this->responsable = $responsable;
+        $this->responsabble = $responsabble;
 
         return $this;
     }
+
 }
