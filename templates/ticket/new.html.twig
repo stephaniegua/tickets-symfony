@@ -1,30 +1,70 @@
-{% extends 'base.html.twig' %}{#attention pas d'espace strictement{% ... %}#}
+{% extends 'base.html.twig' %}
+{# attention : pas d'espace, syntaxe stricte {% ... %} #}
 
 {% block body %}
 <div class="container mt-4">
-    <h1>Créer un ticket</h1>
+    <div class="card shadow-sm">
+        <!-- card de Bootstrap pour un joli encadré -->
+        <div class="card-header bg-primary text-white">
+            <!-- card-header de Bootstrap pour un joli titre -->
+             <h2 class="form-title text-center w-100">
+                <i class="bi bi-ticket-perforated m-4"></i>Créer un ticket<i class="bi bi-ticket-perforated m-4"></i>
+            </h2>
+        </div>
+        <div class="card-body"> 
     {{ form_start(form) }}
         <div class="mb-3">
-            {{ form_label(form.auteur) }}
-            {{ form_widget(form.auteur, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.auteur) }}
+            {# utilise le texte défini dans TicketType #}
+            {{ form_label(form.auteur, null, {   
+                'label_attr': {'class': 'form-label text-center w-100'}
+            }
+            ) }}
+            {#form_widget() → affiche l’input {'attr': {'class': 'form-control'}} → applique Bootstrap#}
+            {{ form_widget(form.auteur, {
+                'attr': {'class': 'form-control'}
+            }) }}
+            {# form_errors() → affiche les erreurs de validation du champ #}
+            {{ form_errors(form.auteur, {
+                'error_attr': {'class': 'text-danger'}
+            }) }}
         </div>
         <div class="mb-3">
-            {{ form_label(form.description) }}
-            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.description) }}
+            {{ form_label(form.description, null, {
+                'label_attr': {'class': 'form-label text-center w-100'}
+            }) }}
+            {#text-center pour centrer le label sur toute la place disponible#}
+            {{ form_widget(form.description, {
+                'attr': {'class': 'form-control'}
+            }) }}
+            {{ form_errors(form.description, {
+                'error_attr': {'class': 'text-danger'}
+            }) }}
         </div>
         <div class="mb-3">
-            {{ form_label(form.categorie) }}
-            {{ form_widget(form.categorie, {'attr': {'class': 'form-select'}}) }}
-            {{ form_errors(form.categorie) }}
+            {{ form_label(form.categorie, null, {
+                'label_attr': {'class': 'form-label text-center w-100'}
+            }) }}
+            {{ form_widget(form.categorie, {
+                'attr': {'class': 'form-select'}
+            }) }}
+            {{ form_errors(form.categorie, {
+                'error_attr': {'class': 'text-danger'}
+            }) }}
         </div>
         <div class="mb-3">
-            {{ form_label(form.responsable) }}
-            {{ form_widget(form.responsable, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.responsable) }}
+            {{ form_label(form.responsable, null, {
+                'label_attr': {'class': 'form-label text-center w-100'}
+            }) }}
+            {{ form_widget(form.responsable, {
+                'attr': {'class': 'form-control'}
+            }) }}
+            {{ form_errors(form.responsable, {
+                'error_attr': {'class': 'text-danger'}
+            }) }}
         </div>
-        <button type="submit" class="btn btn-primary">Créer</button>
+        <button type="submit" class="btn btn-primary w-100">Créer</button><!-- bouton de soumission du formulaire centré 100% largeur-->
     {{ form_end(form) }}
+    </div>
+    </div>
 </div>
 {% endblock %}
