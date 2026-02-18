@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des tickets{% endblock %}
+
+{% block body %}
+<h1>Liste des tickets</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Statut</th>
+            <th>Responsable</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.createdAt|date('d/m/Y H:i') }}</td>
+                <td>{{ ticket.statut.nom }}</td>
+                <td>{{ ticket.responsable ? ticket.responsable.nom : 'Non assigné' }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

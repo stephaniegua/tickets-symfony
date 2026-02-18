@@ -21,8 +21,9 @@
                 <td>{{ responsable.nom }}</td>
                 <td>{{ responsable.email }}</td>
                 <td>
-                    <a href="{{ path('app_responsable_show', {'id': responsable.id}) }}">show</a>
-                    <a href="{{ path('app_responsable_edit', {'id': responsable.id}) }}">edit</a>
+                    <a href="{{ path('admin_responsable_edit', {'id': responsable.id}) }}">Modifier</a>
+                    <a href="{{ path('admin_responsable_delete', {'id': responsable.id}) }}"
+                      onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce responsable ?')">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +34,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_responsable_new') }}">Create new</a>
+    <a href="{{ path('admin_responsable_new') }}">Create new</a>
 {% endblock %}
