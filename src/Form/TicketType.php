@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Categorie;
 use App\Entity\Ticket;
+use App\Entity\Responsable;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -36,8 +37,10 @@ class TicketType extends AbstractType
                 'label' => 'Catégorie du problème',
                 ])
                 
-            ->add('responsable', TextType::class, [
-                'label' => 'Responsable du ticket',
+            ->add('responsable', EntityType::class, [
+                'class' => Responsable::class,
+                'choice_label' => 'nom', 
+                'placeholder' => 'Choisir un responsable',
                 'required' => false,
             ])
         ;
