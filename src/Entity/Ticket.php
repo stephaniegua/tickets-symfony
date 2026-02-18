@@ -14,8 +14,9 @@ class Ticket
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $auteur = null;
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $auteur = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -43,12 +44,12 @@ class Ticket
         return $this->id;
     }
 
-    public function getAuteur(): ?string
+    public function getAuteur(): ?User
     {
         return $this->auteur;
     }
 
-    public function setAuteur(string $auteur): static
+    public function setAuteur(?User $auteur): self
     {
         $this->auteur = $auteur;
         return $this;

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le statut{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="mb-4">Modifier le statut du ticket #{{ ticket.id }}</h1>
+
+    {{ form_start(form) }}
+        <div class="mb-3">
+            {{ form_row(form.statut) }}
+        </div>
+
+        <button class="btn btn-success">Enregistrer</button>
+        <a href="{{ path('tech_ticket_show', {id: ticket.id}) }}" class="btn btn-secondary">Annuler</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

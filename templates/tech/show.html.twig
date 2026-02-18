@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket #{{ ticket.id }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="mb-4">Ticket #{{ ticket.id }}</h1>
+
+    <ul class="list-group mb-4">
+        <li class="list-group-item"><strong>Auteur :</strong> {{ ticket.auteur }}</li>
+        <li class="list-group-item"><strong>Description :</strong> {{ ticket.description }}</li>
+        <li class="list-group-item"><strong>Catégorie :</strong> {{ ticket.categorie.nom }}</li>
+        <li class="list-group-item"><strong>Statut :</strong> {{ ticket.statut.nom }}</li>
+    </ul>
+
+    <a href="{{ path('tech_ticket_edit_status', {id: ticket.id}) }}" class="btn btn-warning">
+        Modifier le statut
+    </a>
+
+    <a href="{{ path('tech_ticket_index') }}" class="btn btn-secondary">
+        Retour à la liste
+    </a>
+</div>
+{% endblock %}

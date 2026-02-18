@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tickets{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="mb-4">Liste des tickets</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Auteur</th>
+                <th>Catégorie</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.auteur }}</td>
+                <td>{{ ticket.categorie.nom }}</td>
+                <td>{{ ticket.statut.nom }}</td>
+                <td>
+                    <a href="{{ path('tech_ticket_show', {id: ticket.id}) }}" class="btn btn-sm btn-primary">
+                        Voir
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5" class="text-center">Aucun ticket trouvé.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bonjour AdminController!{% endblock %}
+
+{% block body %}
+
+<div class="card shadow-sm"> 
+    <div class="card-header bg-primary text-white"> 
+        <h2 class="form-title text-center w-100">Espace Administrateur</h2> 
+    </div> 
+    <div class="card-body">
+
+<ul>
+    <li><a href="{{ path('admin_categorie_index') }}">Gérer les catégories</a></li>
+    <li><a href="{{ path('admin_statut_index') }}">Gérer les statuts</a></li>
+    <li><a href="{{ path('admin_responsable_index') }}">Gérer les responsables</a></li>
+    <li><a href="{{ path('admin_ticket_index') }}">Gérer les tickets</a></li>
+</ul>
+
+   
+</div>
+{% endblock %}

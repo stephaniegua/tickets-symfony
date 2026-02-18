@@ -1,0 +1,35 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+        <h2 class="form-title text-center w-100">Créer un ticket</h2>
+    </div>
+    <div class="card-body">
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+    
+    <div class="mb-3">
+        {{ form_label(form.description, 'Description du problème') }} 
+        {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }} 
+        {{ form_errors(form.description) }} 
+    </div> 
+    <div class="mb-3"> 
+        {{ form_label(form.categorie, 'Catégorie') }} 
+        {{ form_widget(form.categorie, { 'attr': {'class': 'form-select'} }) }} 
+        {{ form_errors(form.categorie) }} 
+    </div>
+    <div class="mb-3"> 
+        {{ form_label(form.auteur, 'Auteur') }} 
+        {{ form_widget(form.auteur, { 'attr': {'class': 'form-select'} }) }} 
+        {{ form_errors(form.auteur) }}
+    </div>
+
+        <button class="btn btn-primary">Envoyer</button>
+    {{ form_end(form) }}
+{% endblock %}

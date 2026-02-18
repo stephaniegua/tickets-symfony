@@ -1,0 +1,40 @@
+security:
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            lazy: true
+            provider: app_user_provider
+            custom_authenticator: App\Security\UserAuthenticator
+            logout:
+                path: app_logout
+                target: /
+
+
+    access_control:
+        # Espace admin
+        - { path: ^/admin, roles: ROLE_ADMIN }
+
+        # Espace technicien
+        - { path: ^/tech, roles: ROLE_TECH }
+
+        # Espace utilisateur (création de tickets)
+        - { path: ^/tickets, roles: ROLE_USER }
+
+        # Page de login accessible à tous
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+
+        # Page d'accueil publique
+        - { path: ^/, roles: PUBLIC_ACCESS }

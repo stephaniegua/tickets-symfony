@@ -9,7 +9,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use App\Repository\StatutRepository;    
+use App\Repository\StatutRepository;  
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\Security\Core\Security;
+
+#[IsGranted('ROLE_USER')]
 
 
 final class TicketController extends AbstractController
@@ -17,11 +21,19 @@ final class TicketController extends AbstractController
     public function __construct(
         private StatutRepository $statutRepository
         ) {}
-        #[Route('/ticket/new', name: 'ticket_new')]
+        #[Route('/tickets', name: 'app_tickets')]
+        public function index(): Response 
+        { 
+            return $this->render('ticket/index.html.twig', [ 
+                'controller_name' => 'TicketController', 
+                ]); 
+        }
+    #[Route('/tickets/new', name: 'app_ticket_new')]
     public function new(Request $request, EntityManagerInterface $em): Response
     {
     $ticket = new Ticket(); 
     $ticket->setCreatedAt(new \DateTimeImmutable()); 
+    $ticket->setAuteur($this->getUser());
 
     // Récupérer le statut "Ouvert" depuis la base de données
     //Quand tu injectes un repository dans le constructeur, tu dois l'utiliser via $this->statutRepository.
@@ -38,7 +50,7 @@ final class TicketController extends AbstractController
         $em->flush(); 
         
         // Rediriger vers une page de confirmation ou la liste des tickets
-        return $this->redirectToRoute('home'); 
+        return $this->redirectToRoute('app_tickets'); 
     } 
     // Afficher le formulaire
     return $this->render('ticket/new.html.twig', [ 
