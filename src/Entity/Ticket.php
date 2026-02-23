@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TicketRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TicketRepository::class)]
 class Ticket
@@ -14,6 +15,7 @@ class Ticket
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank(message: "L'auteur est obligatoire.")]
     #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $auteur = null;
@@ -24,13 +26,21 @@ class Ticket
     #[ORM\Column(nullable: true)]
     private ?\DateTime $closedAt = null;
 
+    #[Assert\NotBlank(message: "La description est obligatoire.")]
+    #[Assert\Length( 
+        min: 20, 
+        max: 250, 
+        minMessage: "La description doit contenir au moins 20 caractères.", 
+        maxMessage: "La description ne peut pas dépasser 250 caractères." )]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
+    #[Assert\NotBlank(message: "La catégorie est obligatoire.")]
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Categorie $categorie = null;
 
+    #[Assert\NotBlank(message: "Le statut est obligatoire.")]
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Statut $statut = null;
