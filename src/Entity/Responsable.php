@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ResponsableRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ResponsableRepository::class)]
 class Responsable
@@ -13,6 +14,7 @@ class Responsable
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank(message: "Le nom du responsable est obligatoire.")]
     #[ORM\Column(length: 50)]
     private ?string $nom = null;
 
