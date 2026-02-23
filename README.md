@@ -56,3 +56,93 @@ Mot de passe : user123
 
 ## 7. Lancer le serveur
 symfony server:start
+
+
+Fonctionnalités principales
+Partie publique (client)
+Création d’un ticket sans authentification
+
+Champs accessibles :
+
+email
+
+description (20–250 caractères)
+
+catégorie (liste déroulante)
+
+Partie authentifiée
+Personnel de l’agence
+Accès à la liste des tickets
+
+Consultation d’un ticket
+
+Modification du statut
+
+Administrateur
+Gestion complète :
+
+catégories
+
+statuts
+
+responsables
+
+tickets
+
+Accès à toutes les fonctionnalités du personnel
+
+🛠️ Technologies utilisées
+Symfony 6+
+
+Doctrine ORM
+
+Twig
+
+Bootstrap 5
+
+Migrations Doctrine
+
+Fixtures Doctrine
+
+Validation Symfony (Assert)
+
+Qualité & bonnes pratiques
+Code indenté et commenté
+
+Versioning Git (commits réguliers)
+
+Migrations pour toute modification du schéma
+
+Fixtures pour un jeu d’essais complet
+
+Séparation claire des rôles utilisateurs
+
+Templates Twig structurés
+
+📁 Structure du projet
+Code
+src/
+ ├── Kernel.php
+ ├── Controller/
+ ├── Entity/
+ ├── Form/
+ ├── Repository/
+ ├── Security/
+ └── DataFixtures/
+
+templates/
+ ├── base.html.twig
+ ├── admin/
+ ├── ticket/
+ ├── categorie/
+ ├── statut/
+ ├── tech/
+ ├── responsable/
+ ├── registration/
+ ├── home/
+ └── security/
+
+public/
+
+Auteur
+Projet réalisé par Stéphanie, développeuse web en reconversion, dans le cadre d’un exercice professionnel visant à valider les compétences Symfony (entités, formulaires, validations, fixtures, migrations, Twig, versioning).
