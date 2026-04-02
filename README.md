@@ -1,20 +1,24 @@
-🎫 Application Symfony de gestion de tickets
+🎫 #Application Symfony de gestion de tickets
 
 Application web permettant la création, le suivi et la gestion de tickets clients.
 
 Ce projet a été réalisé dans le cadre d’un exercice professionnel simulant les pratiques d’une agence web :
 migrations, fixtures, validations, gestion des rôles et bonnes pratiques de développement.
 
-🚀 Fonctionnalités
+🚀 #Fonctionnalités
 
 
 👤 Partie publique (client)
 
 
 Création de ticket sans authentification
+
 Champs :
+
 Email
+
 Description (20 à 250 caractères)
+
 Catégorie (liste déroulante)
 
 
@@ -25,7 +29,9 @@ Catégorie (liste déroulante)
 
 
 Accès à la liste des tickets
+
 Consultation d’un ticket
+
 Modification du statut
 
 
@@ -33,10 +39,15 @@ Modification du statut
 
 
 Gestion complète :
+
 Catégories
+
 Statuts
+
 Responsables
+
 Tickets
+
 Accès total aux fonctionnalités
 
 
@@ -44,7 +55,9 @@ Accès total aux fonctionnalités
 
 
 ROLE_ADMIN : accès complet (CRUD)
+
 ROLE_TECH : gestion des tickets + statut
+
 ROLE_USER : création de tickets (partie publique)
 
 
@@ -52,11 +65,17 @@ ROLE_USER : création de tickets (partie publique)
 
 
 Symfony 6+
+
 Doctrine ORM
+
 Twig
+
 Bootstrap 5
+
 Migrations Doctrine
+
 Fixtures Doctrine
+
 Validation Symfony (Assert)
 
 # Installation du projet
@@ -78,15 +97,25 @@ php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 
 Charger les données d’essai (fixtures)
+
 Un jeu d’essais complet est fourni pour permettre de tester l’application :
+
 un administrateur
+
 un technicien
+
 un utilisateur standard
+
 catégories
+
 statuts
+
 responsables
+
 tickets
+
 utilisateurs (admin + personnel)
+
 
 ## 6. Charger les fixtures
 php bin/console doctrine:fixtures:load
@@ -94,91 +123,102 @@ php bin/console doctrine:fixtures:load
 Identifiants de connexion:
 
 Administrateur
+
 Email : admin@test.com
+
 Mot de passe : admin123
 
 Technicien
+
 Email : tech@test.com
+
 Mot de passe : tech123
 
 User
+
 Email : user@test.com
+
 Mot de passe : user123
 
+
 ## 7. Lancer le serveur
+
 symfony server:start
+
 Puis accéder à :
 👉 http://localhost:8000
 
 
-Fonctionnalités principales:
+#Fonctionnalités principales:
 
 Partie publique (client)
+
 Création d’un ticket sans authentification
+
 Champs accessibles :
+
 email
+
 description (20–250 caractères)
+
 catégorie (liste déroulante)
 
 Partie authentifiée
 
+
 Personnel de l’agence
+
 Accès à la liste des tickets
+
 Consultation d’un ticket
+
 Modification du statut
 
+
 Administrateur
+
 Gestion complète :
+
 catégories
+
 statuts
+
 responsables
+
 tickets
+
 Accès à toutes les fonctionnalités du personnel
+
 
 Gestion des rôles
 
+
 - **ROLE_ADMIN** : accès complet à toutes les données (CRUD complet)
+- 
 - **ROLE_TECH** : accès aux tickets + modification du statut
+- 
 - **ROLE_USER** : création de tickets publics (non authentifié)
 
 
-Technologies utilisées
-Symfony 6+
-Doctrine ORM
-Twig
-Bootstrap 5
-Migrations Doctrine
-Fixtures Doctrine
-Validation Symfony (Assert)
 
-Qualité & bonnes pratiques
+
+#Qualité & bonnes pratiques
+
+
 Code indenté et commenté
+
 Versioning Git (commits réguliers)
+
 Migrations pour toute modification du schéma
+
 Fixtures pour un jeu d’essais complet
+
 Séparation claire des rôles utilisateurs
+
 Templates Twig structurés
 
 Structure du projet
-src/
-├── Controller/
-├── Entity/
-├── Form/
-├── Repository/
-├── Security/
-└── DataFixtures/
 
-templates/
-├── base.html.twig
-├── admin/
-├── ticket/
-├── categorie/
-├── statut/
-├── tech/
-├── responsable/
-├── registration/
-├── home/
-└── security/
 
 public/
 Code
@@ -203,7 +243,7 @@ templates/
  ├── home/
  └── security/
 
-public/
+
 
 Auteur
 Projet réalisé par Stéphanie, développeuse web en reconversion, dans le cadre d’un exercice professionnel visant à valider les compétences Symfony (entités, formulaires, validations, fixtures, migrations, Twig, versioning).
