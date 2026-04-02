@@ -6,29 +6,51 @@ Ce projet a été réalisé dans le cadre d’un exercice professionnel simulant
 migrations, fixtures, validations, gestion des rôles et bonnes pratiques de développement.
 
 🚀 Fonctionnalités
+
+
 👤 Partie publique (client)
+
+
 Création de ticket sans authentification
 Champs :
 Email
 Description (20 à 250 caractères)
 Catégorie (liste déroulante)
+
+
 🔐 Partie authentifiée
+
+
 👨‍🔧 Personnel
+
+
 Accès à la liste des tickets
 Consultation d’un ticket
 Modification du statut
+
+
 👑 Administrateur
+
+
 Gestion complète :
 Catégories
 Statuts
 Responsables
 Tickets
 Accès total aux fonctionnalités
+
+
 🔑 Gestion des rôles
+
+
 ROLE_ADMIN : accès complet (CRUD)
 ROLE_TECH : gestion des tickets + statut
 ROLE_USER : création de tickets (partie publique)
+
+
 🛠️ Technologies utilisées
+
+
 Symfony 6+
 Doctrine ORM
 Twig
