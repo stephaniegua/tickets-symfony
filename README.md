@@ -1,86 +1,65 @@
-🎫 #Application Symfony de gestion de tickets
+# 🎫 Application Symfony de gestion de tickets
 
 Application web permettant la création, le suivi et la gestion de tickets clients.
 
 Ce projet a été réalisé dans le cadre d’un exercice professionnel simulant les pratiques d’une agence web :
 migrations, fixtures, validations, gestion des rôles et bonnes pratiques de développement.
 
-🚀 #Fonctionnalités
+---
 
+## 🚀 Fonctionnalités
 
-👤 Partie publique (client)
+### 👤 Partie publique (client)
 
+- Création de ticket sans authentification
+- Champs :
+  - Email
+  - Description (20 à 250 caractères)
+  - Catégorie (liste déroulante)
 
-Création de ticket sans authentification
+### 🔐 Partie authentifiée
 
-Champs :
+#### 👨‍🔧 Personnel
 
-Email
+- Accès à la liste des tickets
+- Consultation d’un ticket
+- Modification du statut
 
-Description (20 à 250 caractères)
+#### 👑 Administrateur
 
-Catégorie (liste déroulante)
+- Gestion complète :
+  - Catégories
+  - Statuts
+  - Responsables
+  - Tickets
+- Accès total aux fonctionnalités
 
+---
 
-🔐 Partie authentifiée
+## 🔑 Gestion des rôles
 
+- **ROLE_ADMIN** : accès complet (CRUD)
+- **ROLE_TECH** : gestion des tickets + statut
+- **ROLE_USER** : création de tickets (partie publique)
 
-👨‍🔧 Personnel
+---
 
+## 🛠️ Technologies utilisées
 
-Accès à la liste des tickets
+- Symfony 6+
+- Doctrine ORM
+- Twig
+- Bootstrap 5
+- Migrations Doctrine
+- Fixtures Doctrine
+- Validation Symfony (Assert)
 
-Consultation d’un ticket
+---
 
-Modification du statut
+## ⚙️ Installation du projet
 
-
-👑 Administrateur
-
-
-Gestion complète :
-
-Catégories
-
-Statuts
-
-Responsables
-
-Tickets
-
-Accès total aux fonctionnalités
-
-
-🔑 Gestion des rôles
-
-
-ROLE_ADMIN : accès complet (CRUD)
-
-ROLE_TECH : gestion des tickets + statut
-
-ROLE_USER : création de tickets (partie publique)
-
-
-🛠️ Technologies utilisées
-
-
-Symfony 6+
-
-Doctrine ORM
-
-Twig
-
-Bootstrap 5
-
-Migrations Doctrine
-
-Fixtures Doctrine
-
-Validation Symfony (Assert)
-
-# Installation du projet
-
-## 1. Cloner le projet
+### 1. Cloner le projet
+```bash
 git clone https://github.com/stephaniegua/tickets-symfony.git
 cd tickets-symfony
 
