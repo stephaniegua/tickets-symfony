@@ -1,9 +1,41 @@
+🎫 Application Symfony de gestion de tickets
 
-# Application Symfony de gestion de tickets
+Application web permettant la création, le suivi et la gestion de tickets clients.
 
-Application interne permettant la création, le suivi et la gestion de tickets clients.
-Ce projet a été réalisé dans le cadre d’un exercice professionnel simulant les pratiques d’une agence web : 
-migrations, fixtures, validations, versioning, Bootstrap, et séparation claire des rôles (client, personnel, administrateur).
+Ce projet a été réalisé dans le cadre d’un exercice professionnel simulant les pratiques d’une agence web :
+migrations, fixtures, validations, gestion des rôles et bonnes pratiques de développement.
+
+🚀 Fonctionnalités
+👤 Partie publique (client)
+Création de ticket sans authentification
+Champs :
+Email
+Description (20 à 250 caractères)
+Catégorie (liste déroulante)
+🔐 Partie authentifiée
+👨‍🔧 Personnel
+Accès à la liste des tickets
+Consultation d’un ticket
+Modification du statut
+👑 Administrateur
+Gestion complète :
+Catégories
+Statuts
+Responsables
+Tickets
+Accès total aux fonctionnalités
+🔑 Gestion des rôles
+ROLE_ADMIN : accès complet (CRUD)
+ROLE_TECH : gestion des tickets + statut
+ROLE_USER : création de tickets (partie publique)
+🛠️ Technologies utilisées
+Symfony 6+
+Doctrine ORM
+Twig
+Bootstrap 5
+Migrations Doctrine
+Fixtures Doctrine
+Validation Symfony (Assert)
 
 # Installation du projet
 
@@ -53,6 +85,8 @@ Mot de passe : user123
 
 ## 7. Lancer le serveur
 symfony server:start
+Puis accéder à :
+👉 http://localhost:8000
 
 
 Fonctionnalités principales:
@@ -104,6 +138,27 @@ Séparation claire des rôles utilisateurs
 Templates Twig structurés
 
 Structure du projet
+src/
+├── Controller/
+├── Entity/
+├── Form/
+├── Repository/
+├── Security/
+└── DataFixtures/
+
+templates/
+├── base.html.twig
+├── admin/
+├── ticket/
+├── categorie/
+├── statut/
+├── tech/
+├── responsable/
+├── registration/
+├── home/
+└── security/
+
+public/
 Code
 src/
  ├── Kernel.php
