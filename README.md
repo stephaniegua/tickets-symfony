@@ -139,7 +139,7 @@ Puis accéder à :
 
 
 
-###Qualité & bonnes pratiques
+## Qualité & bonnes pratiques
 
 
 Code indenté et commenté
@@ -154,7 +154,8 @@ Séparation claire des rôles utilisateurs
 
 Templates Twig structurés
 
-Structure du projet
+
+## Structure du projet
 ```bash
 
 public/
