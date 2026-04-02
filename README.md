@@ -138,58 +138,6 @@ Puis accéder à :
 👉 http://localhost:8000
 
 
-#Fonctionnalités principales:
-
-Partie publique (client)
-
-Création d’un ticket sans authentification
-
-Champs accessibles :
-
-email
-
-description (20–250 caractères)
-
-catégorie (liste déroulante)
-
-Partie authentifiée
-
-
-Personnel de l’agence
-
-Accès à la liste des tickets
-
-Consultation d’un ticket
-
-Modification du statut
-
-
-Administrateur
-
-Gestion complète :
-
-catégories
-
-statuts
-
-responsables
-
-tickets
-
-Accès à toutes les fonctionnalités du personnel
-
-
-Gestion des rôles
-
-
-- **ROLE_ADMIN** : accès complet à toutes les données (CRUD complet)
-- 
-- **ROLE_TECH** : accès aux tickets + modification du statut
-- 
-- **ROLE_USER** : création de tickets publics (non authentifié)
-
-
-
 
 ###Qualité & bonnes pratiques
 
@@ -236,7 +184,7 @@ templates/
 Auteur
 Projet réalisé par Stéphanie, développeuse web en reconversion, dans le cadre d’un exercice professionnel visant à valider les compétences Symfony (entités, formulaires, validations, fixtures, migrations, Twig, versioning).
 
-## Dépôt GitHub
+### Dépôt GitHub
 
 https://github.com/stephaniegua/tickets-symfony
 
