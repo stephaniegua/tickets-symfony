@@ -63,16 +63,19 @@ migrations, fixtures, validations, gestion des rôles et bonnes pratiques de dé
 git clone https://github.com/stephaniegua/tickets-symfony.git
 cd tickets-symfony
 
-## 2. Installer les dépendances
+### 2. Installer les dépendances
+```bash
 composer install
 
-## 3. Configurer l'environnement
+### 3. Configurer l'environnement
 Copier `.env` en `.env.local` et modifier les accès à la base de données.
 
-## 4. Créer la base de données
+### 4. Créer la base de données
+```bash
 php bin/console doctrine:database:create
 
-## 5. Lancer les migrations
+### 5. Lancer les migrations
+```bash
 php bin/console doctrine:migrations:migrate
 
 Charger les données d’essai (fixtures)
@@ -96,7 +99,8 @@ tickets
 utilisateurs (admin + personnel)
 
 
-## 6. Charger les fixtures
+### 6. Charger les fixtures
+```bash
 php bin/console doctrine:fixtures:load
 
 Identifiants de connexion:
@@ -120,8 +124,8 @@ Email : user@test.com
 Mot de passe : user123
 
 
-## 7. Lancer le serveur
-
+### 7. Lancer le serveur
+```bash
 symfony server:start
 
 Puis accéder à :
@@ -181,7 +185,7 @@ Gestion des rôles
 
 
 
-#Qualité & bonnes pratiques
+###Qualité & bonnes pratiques
 
 
 Code indenté et commenté
@@ -197,10 +201,9 @@ Séparation claire des rôles utilisateurs
 Templates Twig structurés
 
 Structure du projet
-
+```bash
 
 public/
-Code
 src/
  ├── Kernel.php
  ├── Controller/
